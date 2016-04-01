@@ -1,0 +1,1228 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ns "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+    <!ENTITY ReputationObjectOntology "http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:ReputationObjectOntology="http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl">
+        <rdfs:comment rdf:datatype="&xsd;string">Based on version 4, this is version 5 of the Reputation Object Ontology that describes a representation for an entity&apos;s reputation in several contexts.</rdfs:comment>
+        <versionIRI rdf:resource="http://purl.org/ralnemr/ro#"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <AnnotationProperty rdf:about="&ns;term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#InContextWith -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;InContextWith">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isTargetOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasTarget"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isSourceOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasSource"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isTargetOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasSource"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isSourceOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasTarget"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#InContextWith_diff -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;InContextWith_diff">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isTargetOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasSource"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isSourceOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasTarget"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#InContextWith_equal -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;InContextWith_equal">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isSourceOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasSource"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isTargetOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasTarget"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#aggregates -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;aggregates">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;isAggregatedBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#collects -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;collects">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#computes -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;computes">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;isComputedBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#defineEntity -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;defineEntity">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;isDefinedBy"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#evaluate -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;evaluate">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#evaluatedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;evaluatedBy">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;evaluate"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasAggregation -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasAggregation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasCoeficient -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasCoeficient"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasComputation -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasComputation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasContext -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasContext"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasCriteria -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasCriteria">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Criterion"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasEvolution -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasEvolution"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasHistory -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasHistory"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasOrderedList -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasOrderedList"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasRange -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasRange"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasReputation -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasReputation">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasReputationValue -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasReputationValue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasSource -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasSource">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasSubCriterion -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasSubCriterion">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;isSubCriterion"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasTarget -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasTarget">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Entity"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;isTargetOf"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasValue -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;hasValue">
+        <inverseOf rdf:resource="&ReputationObjectOntology;isValueOf"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isAggregatedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isAggregatedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isCollectedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isCollectedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;collects"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isComputedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isComputedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>isComputedBy</rdfs:label>
+        <ns:term_status>testing</ns:term_status>
+        <rdfs:isDefinedBy>http://purl.org/ralnemr/ro#</rdfs:isDefinedBy>
+        <rdfs:comment>relates a reputation Criterion or ReputationValue to its computation algorithm
+</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isCriterionOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isCriterionOf">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;hasCriteria"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isDefinedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isDefinedBy">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isTargetOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasCriteria"/>
+        </propertyChainAxiom>
+        <propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;isSourceOf"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;hasCriteria"/>
+        </propertyChainAxiom>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isHistoryOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isHistoryOf">
+        <inverseOf rdf:resource="&ReputationObjectOntology;hasHistory"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isMemberOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isMemberOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isPartOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isPartOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isRangeOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isRangeOf">
+        <inverseOf rdf:resource="&ReputationObjectOntology;hasRange"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isReputationOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isReputationOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <inverseOf rdf:resource="&ReputationObjectOntology;hasReputation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isReputationValueIn -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isReputationValueIn">
+        <inverseOf rdf:resource="&ReputationObjectOntology;hasReputationValue"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isSourceOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isSourceOf">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isSubCriterion -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isSubCriterion">
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Criterion"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isTargetOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isTargetOf">
+        <rdfs:range rdf:resource="&ReputationObjectOntology;Context"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Entity"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#isValueOf -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;isValueOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#orderedBy -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;orderedBy">
+        <inverseOf rdf:resource="&ReputationObjectOntology;orders"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#orders -->
+
+    <ObjectProperty rdf:about="&ReputationObjectOntology;orders"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#currentValue -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;currentValue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasDescription -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;hasDescription">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasRatingValue -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;hasRatingValue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasSignal -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;hasSignal">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#hasType -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;hasType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#reputationID -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;reputationID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ReputationObjectOntology;Reputation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#timeStamped -->
+
+    <DatatypeProperty rdf:about="&ReputationObjectOntology;timeStamped"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/list.owl#OWLList -->
+
+    <Class rdf:about="http://www.co-ode.org/ontologies/list.owl#OWLList">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#AggregationAlgorithm -->
+
+    <Class rdf:about="&ReputationObjectOntology;AggregationAlgorithm">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Algorithm"/>
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;CriteriaList"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;aggregates"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;CriteriaList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasDescription"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A method to aggregate the values of multiple criteria to 1 context value</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Algorithm -->
+
+    <Class rdf:about="&ReputationObjectOntology;Algorithm">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+        <dc:description>An algorithm is a method which performs a certain function in one or more steps. It can represent a mathematical function or a description of a collection of steps to achieve a goal.</dc:description>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Coeficient -->
+
+    <Class rdf:about="&ReputationObjectOntology;Coeficient">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ReputationObjectOntology;PossibleValues"/>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasSignal"/>
+                        <someValuesFrom rdf:resource="&xsd;boolean"/>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;PossibleValues"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#CollectingAlgorithm -->
+
+    <Class rdf:about="&ReputationObjectOntology;CollectingAlgorithm">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Algorithm"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;collects"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Criterion"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasDescription"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A method to collect information about a criterion value or a reputation score</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#ComputationAlgorithm -->
+
+    <Class rdf:about="&ReputationObjectOntology;ComputationAlgorithm">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Algorithm"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;computes"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Criterion"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasDescription"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;computes"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Also known as reputation computation engine or reputation function, which calculates the reputation final value after a new score is entered.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Context -->
+
+    <Class rdf:about="&ReputationObjectOntology;Context">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasAggregation"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;AggregationAlgorithm"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasTarget"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Entity"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasCriteria"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Criterion"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasSource"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Entity"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasComputation"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&ReputationObjectOntology;Criterion"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;Entity"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#CriteriaList -->
+
+    <Class rdf:about="&ReputationObjectOntology;CriteriaList">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/list.owl#OWLList"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isAggregatedBy"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;CriteriaList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Criterion -->
+
+    <Class rdf:about="&ReputationObjectOntology;Criterion">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasSubCriterion"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Criterion"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isCollectedBy"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;CollectingAlgorithm"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasRange"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;PossibleValues"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isCollectedBy"/>
+                <onClass rdf:resource="&ReputationObjectOntology;CollectingAlgorithm"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isMemberOf"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;CriteriaList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isComputedBy"/>
+                <onClass rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasDescription"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isComputedBy"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasCoeficient"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Coeficient"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasValue"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&ReputationObjectOntology;Entity"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;PossibleValues"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;Reputation"/>
+        <disjointWith rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Entity -->
+
+    <Class rdf:about="&ReputationObjectOntology;Entity">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isTargetOf"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Context"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isSourceOf"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Context"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;evaluate"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Entity"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Evolution -->
+
+    <Class rdf:about="&ReputationObjectOntology;Evolution">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasHistory"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;HistoryList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;currentValue"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                            <rdf:Description rdf:about="&xsd;string"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;timeStamped"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&xsd;dateTime"/>
+                            <rdf:Description rdf:about="&xsd;string"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#HistoryList -->
+
+    <Class rdf:about="&ReputationObjectOntology;HistoryList">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/list.owl#OWLList"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#OrderFunction -->
+
+    <Class rdf:about="&ReputationObjectOntology;OrderFunction">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Algorithm"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;orders"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;OrderFunction"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasDescription"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#OrderedRepValuesList -->
+
+    <Class rdf:about="&ReputationObjectOntology;OrderedRepValuesList">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/list.owl#OWLList"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Person -->
+
+    <Class rdf:about="&ReputationObjectOntology;Person">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Entity"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#PossibleValues -->
+
+    <Class rdf:about="&ReputationObjectOntology;PossibleValues">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/list.owl#OWLList"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasOrderedList"/>
+                <someValuesFrom>
+                    <Class>
+                        <intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ReputationObjectOntology;OrderedRepValuesList"/>
+                            <Restriction>
+                                <onProperty rdf:resource="&ReputationObjectOntology;orderedBy"/>
+                                <someValuesFrom rdf:resource="&ReputationObjectOntology;OrderFunction"/>
+                            </Restriction>
+                        </intersectionOf>
+                    </Class>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;orderedBy"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;OrderFunction"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasOrderedList"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;OrderedRepValuesList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A set of the possible values that a criterion can have. It can be a set of fixed values or a description of the value type e.g. natural numbers, binary, integers from 1 to 5.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Product -->
+
+    <Class rdf:about="&ReputationObjectOntology;Product">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Entity"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Rating -->
+
+    <Class rdf:about="&ReputationObjectOntology;Rating">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Reputation"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasRatingValue"/>
+                <someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&ReputationObjectOntology;ReputationObject"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Reputation -->
+
+    <Class rdf:about="&ReputationObjectOntology;Reputation">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isReputationOf"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Entity"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isReputationOf"/>
+                <onClass rdf:resource="&ReputationObjectOntology;Entity"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasContext"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;Context"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;reputationID"/>
+                <someValuesFrom rdf:resource="&xsd;string"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasEvolution"/>
+                <onClass rdf:resource="&ReputationObjectOntology;Evolution"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#ReputationObject -->
+
+    <Class rdf:about="&ReputationObjectOntology;ReputationObject">
+        <equivalentClass>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ReputationObjectOntology;Reputation"/>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasCriteria"/>
+                        <someValuesFrom rdf:resource="&ReputationObjectOntology;Criterion"/>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasCriteria"/>
+                        <someValuesFrom>
+                            <Class>
+                                <intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&ReputationObjectOntology;Criterion"/>
+                                    <Restriction>
+                                        <onProperty rdf:resource="&ReputationObjectOntology;hasReputationValue"/>
+                                        <someValuesFrom rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+                                    </Restriction>
+                                </intersectionOf>
+                            </Class>
+                        </someValuesFrom>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasReputationValue"/>
+                        <someValuesFrom rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasCriteria"/>
+                        <onClass rdf:resource="&ReputationObjectOntology;Criterion"/>
+                        <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasReputationValue"/>
+                        <onClass rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+                        <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Reputation"/>
+        <dc:description>A Reputation Object is a semantic representation to an entity&apos;s reputation through the process of profiling an entity&apos;s expected performance in several contexts. It consists of one or more criteria of evaluation along with their reputation values.</dc:description>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#ReputationValue -->
+
+    <Class rdf:about="&ReputationObjectOntology;ReputationValue">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;timeStamped"/>
+                <someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isComputedBy"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Class>
+                <intersectionOf rdf:parseType="Collection">
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasHistory"/>
+                        <onClass rdf:resource="&ReputationObjectOntology;HistoryList"/>
+                        <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</minQualifiedCardinality>
+                    </Restriction>
+                    <Restriction>
+                        <onProperty rdf:resource="&ReputationObjectOntology;hasHistory"/>
+                        <onClass rdf:resource="&ReputationObjectOntology;HistoryList"/>
+                        <maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</maxQualifiedCardinality>
+                    </Restriction>
+                </intersectionOf>
+            </Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isComputedBy"/>
+                <onClass rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+                <qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;isPartOf"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;PossibleValues"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;currentValue"/>
+                <someValuesFrom>
+                    <rdfs:Datatype>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&rdfs;Literal"/>
+                            <rdf:Description rdf:about="&xsd;anyURI"/>
+                        </unionOf>
+                    </rdfs:Datatype>
+                </someValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&ReputationObjectOntology;hasHistory"/>
+                <someValuesFrom rdf:resource="&ReputationObjectOntology;HistoryList"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Service -->
+
+    <Class rdf:about="&ReputationObjectOntology;Service">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Entity"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Source -->
+
+    <Class rdf:about="&ReputationObjectOntology;Source">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#Target -->
+
+    <Class rdf:about="&ReputationObjectOntology;Target">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+        <rdfs:subClassOf rdf:resource="&ReputationObjectOntology;Entity"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#RepValue1 -->
+
+    <Thing rdf:about="&ReputationObjectOntology;RepValue1">
+        <rdf:type rdf:resource="&ReputationObjectOntology;ReputationValue"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#evo0 -->
+
+    <Thing rdf:about="&ReputationObjectOntology;evo0">
+        <rdf:type rdf:resource="&ReputationObjectOntology;Evolution"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#evo1 -->
+
+    <Thing rdf:about="&ReputationObjectOntology;evo1">
+        <rdf:type rdf:resource="&ReputationObjectOntology;Evolution"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <ReputationObjectOntology:currentValue rdf:datatype="&xsd;string">http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#0.8</ReputationObjectOntology:currentValue>
+        <ReputationObjectOntology:timeStamped rdf:datatype="&xsd;string">http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#2015-11-17T17:34:32.327Z</ReputationObjectOntology:timeStamped>
+        <ReputationObjectOntology:hasHistory rdf:resource="&ReputationObjectOntology;evo0"/>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#media-ponderada-valores-anteriores -->
+
+    <Thing rdf:about="&ReputationObjectOntology;media-ponderada-valores-anteriores">
+        <rdf:type rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/8/ReputationObjectOntology.owl#media-ponderada-valores-atuais -->
+
+    <Thing rdf:about="&ReputationObjectOntology;media-ponderada-valores-atuais">
+        <rdf:type rdf:resource="&ReputationObjectOntology;ComputationAlgorithm"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;AggregationAlgorithm"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;CollectingAlgorithm"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;ComputationAlgorithm"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&ReputationObjectOntology;Algorithm"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;PossibleValues"/>
+            <rdf:Description rdf:about="&ReputationObjectOntology;Reputation"/>
+        </members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
